@@ -1,0 +1,33 @@
+.main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../public/images/design/young-woman-1149643_1920.jpg');
+    background-position-x: center;
+    background-size: cover;
+}
+.mainText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    height: inherit;
+}
+.chees {
+    position: absolute;
+    top: 100px;
+}
+.gallery {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    bottom: 50px;
+    height: 100px;
+    width: 70%;
+    font-size: 32px;
+    background: rgba(190, 190, 190, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}

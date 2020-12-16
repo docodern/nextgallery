@@ -1,0 +1,9 @@
+.container {
+  height: 100vh;
+    
+    /* Make the children of the element closer to the viewport */
+    perspective: 2px;
+    
+    /* Hide the overflow */
+    overflow-x: hidden;
+}
