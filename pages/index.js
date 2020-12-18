@@ -4,10 +4,11 @@ import Main from '../components/main'
 import Body from '../components/body'
 import Footer from '../components/footer'
 import styles from '../styles/Home.module.css'
+import path from 'path'
+import fs from 'fs'
 
 
-
-export default function Home() {
+export default function Home({lang}) {
   return (
     <>
       <Head>
@@ -20,8 +21,21 @@ export default function Home() {
       </Head>
       <Menu />
       <Main />
-      <Body />
+      <Body { ...lang } />
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps({locale}) {
+  // const router = useRouter()
+  // const { locale, locales, defaultLocale } = router
+  const langDir = path.join(process.cwd(), 'languages')
+  const fullPath = path.join(langDir, locale)
+  const lang = JSON.parse(fs.readFileSync(fullPath + '.json'));
+  return {
+    props: {
+      lang
+    }
+  }
 }
