@@ -1,5 +1,18 @@
 {
     "body": {
-        "location": "Superīgas lokācijas"
+        "kind": "Citāda veida fotogrāfijas.",
+        "intro": "Aizmirstiet visu, ko zinājat par tradicionālajām fotosesijām.",
+        "location": "Superīgas lokācijas",
+        "exper": "neaizmirstama pieredze",
+        "order": "PASŪTI TAGAD"
+    },
+    "menu": {
+        "home": "Galvena",
+        "about": "Par mani",
+        "galleries": "Galerijas",
+        "paths": {
+            "about": "parmani",
+            "galleries": "galerijas"
+        }
     }
 }

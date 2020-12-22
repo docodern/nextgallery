@@ -1,0 +1,19 @@
+{
+    "body": {
+        "kind": "A different kind of photography.",
+        "intro": "Forget everything you know about traditional photo sessions.",
+        "location": "Cool locations",
+        "exper": "unforgettable experience",
+        "order": "ORDER NOW"
+    },
+    "menu": {
+        "home": "Home",
+        "about": "About",
+        "galleries": "Galleries",
+        "paths": {
+            "about": "about",
+            "galleries": "galleries"
+        }
+    }
+
+}

@@ -1,0 +1,137 @@
+.over {
+    position: relative;
+    width: 100%;
+    min-height: 200vh;
+    background-color: transparent;
+}
+.main {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    background-image: url('../public/images/design/aboutbgd.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.mainText {
+    position: absolute;
+    top: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    font-size: 0.875rem;
+    padding: 0 15%;
+    background-image: url('../public/images/design/gun_metal.png');
+    box-shadow: 0px -1px 4px 2px rgba(255, 255, 255, 0.25);
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+}
+.header {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .features {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    background-image: url('../public/images/design/lens.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .services {
+     font-size: 1.375rem;
+     font-weight: 900;
+     text-transform: uppercase;
+     color: rgb(32, 32, 32);
+  }
+  .featuresText {
+    position: sticky;
+    top: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    font-size: 0.875rem;
+    padding: 0 15%;
+    background-image: url('../public/images/design/gun_metal.png');
+    box-shadow: 0px -1px 4px 2px rgba(255, 255, 255, 0.25);
+    width: 100%;
+    min-height: 100vh;
+  }
+  .cards {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: 25vh 0;
+  }
+  .bg1 {
+    background-image: url('/images/features/concert-2527495_1280.webp');
+  }
+  .bg2 {
+    background-image: url('/images/features/heart-529607_1920.webp');
+  }
+  .bg3 {
+    background-image: url('/images/features/raspberry-2023404_1920.webp');
+  }
+  .bg4 {
+    background-image: url('/images/features/bubbles-1278749_1920.webp');
+  }
+  .bg5 {
+    background-image: url('/images/features/womens-2832173_1920.webp');
+  }
+  .bg6 {
+    background-image: url('/images/features/marguerite-5059879_1920.webp');
+  }
+  .card {
+    position: relative;
+    width: inherit;
+    min-height: 25vh;
+    margin: 25vh 0;
+    color: #000;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0px -1px 4px 2px rgba(255, 255, 255, 0.25);
+  }
+  .cardInfo {
+    width: 100%;
+    min-height: 25vh;
+    padding: 2rem;
+    color:  rgb(32, 32, 32);
+    background: rgba(224, 224, 224, 0.90);
+    border-radius: 15px;
+    text-align: justify;
+  }
+  .left {
+    margin: 2rem -2rem;
+  }
+  .right {
+    margin: 2rem 2rem;
+  }
+  @media only screen and (min-width: 600px) {
+    .header {
+      font-size: 2rem;
+    }
+    .text {
+      font-size: 1.375rem;
+    }
+    .services {
+      font-size: 2rem;
+    }
+  }

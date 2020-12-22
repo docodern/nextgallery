@@ -1,11 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styles from '../styles/Menu.module.css'
 
 
-export default function Menu() {
+export default function Menu({ ...menu }) {
+
+  // router data
+    const router = useRouter()
+    const allLocales = router.locales;
+    const currentLocale = router.locale
+    const pathname = router.pathname
+
+    // menu and locals opening
     const [open, setOpen] = useState();
     const handleToggle = () => {
         setOpen(!open);
+      };
+    const [openLocales, setOpenLocales] = useState();
+    const handleToggleLocales = () => {
+        setOpenLocales(!openLocales);
       };
 
       const useOnClickOutside = (ref, handler) => {
@@ -26,23 +40,60 @@ export default function Menu() {
       };
       const node = useRef(); 
       useOnClickOutside(node, () => setOpen(false));
+      useOnClickOutside(node, () => setOpenLocales(false));
+
+      // Check query for paths in locals section
+      var queryKeys=Object.keys(router.query)
+      var myQuerys={}
+      for (var k=0; k<allLocales.length; k++) {
+
+        for (var j=0; j<menu.allQueryParams.allLangs.length; j++){
+         
+        if (allLocales[k]===menu.allQueryParams.allLangs[j].language){
+
+          for (var i=0; i<queryKeys.length; i++){
+
+            var newQuery={}
+            newQuery[queryKeys[i]]=menu.allQueryParams.allLangs[j][queryKeys[i]]
+          }
+        }
+      }
+      myQuerys[allLocales[k]]=newQuery;
+      }
+
 
     return (
         <div ref={node}>
         <div className={styles.menu}>
-            <div className={styles.langButton}>EN</div>
+            <div className={styles.langButton} onClick={handleToggleLocales}>{currentLocale}</div>
             <div className={styles.logo}>NextJS Gallery</div>
             <div className={styles.burger}>
                 <button className={`${styles.ham} ${open ? styles.hamClose : null}`} onClick={handleToggle}></button>
             </div>
         </div>
         <div className={`${styles.menuLinks} ${open ? styles.showMenu : null}`}>
-        <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Gallery</li>
-            <li>Contacts</li>
-        </ul>
+        <nav>
+        <Link href='/' locale={currentLocale}>
+        <a>{menu.lang.menu.home}</a>
+      </Link>
+      <Link href={`/${menu.lang.menu.paths.about}`} locale={currentLocale}>
+        <a>{menu.lang.menu.about}</a>
+      </Link>
+      <Link href={`/${menu.lang.menu.paths.galleries}`} locale={currentLocale}>
+        <a>{menu.lang.menu.galleries}</a>
+      </Link>
+        </nav>
+    </div>
+    <div className={`${styles.locales} ${openLocales ? styles.showLocales : null}`}>
+      {allLocales.map((value) => {
+        return <p key={value}><Link href={{
+          pathname: pathname,
+          query: myQuerys[value],
+        }} locale={value}>
+        <a>{value}</a>
+      </Link></p>
+        
+      })}
     </div>
     </div>
     )
