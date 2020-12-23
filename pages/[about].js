@@ -35,7 +35,7 @@ export const getStaticPaths = () => {
       { params: { about: 'galleries' }, locale: 'en' },
       { params: { about: 'galerijas' }, locale: 'lv' },
     ],
-    fallback: true,
+    fallback: false,
   }
 }
 
