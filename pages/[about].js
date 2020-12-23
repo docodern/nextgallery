@@ -15,6 +15,7 @@ export async function getStaticProps({locale}) {
   const fullPath = path.join(langDir, locale)
   const lang = await JSON.parse(fs.readFileSync(fullPath + '.json'));
   const allQueryParams = getQueryParams()
+  console.log('allQueryParams: '+JSON.stringify(allQueryParams));
   return {
     props: {
       lang,
