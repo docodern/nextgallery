@@ -13,7 +13,6 @@ import { getQueryParams } from '../lib/paths'
 export default function About({lang, menu}) {
   const router = useRouter()
   const query = router.query.about;
-  console.log('query: '+JSON.stringify(query));
   function about (){
     return (
       <AboutMain />

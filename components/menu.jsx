@@ -43,6 +43,7 @@ export default function Menu({ ...menu }) {
       useOnClickOutside(node, () => setOpenLocales(false));
 
       // Check query for paths in locals section
+      var queryValues=Object.values(router.query)
       var queryKeys=Object.keys(router.query)
       var myQuerys={}
       for (var k=0; k<allLocales.length; k++) {
@@ -51,11 +52,14 @@ export default function Menu({ ...menu }) {
          
         if (allLocales[k]===menu.allQueryParams.allLangs[j].language){
 
-          for (var i=0; i<queryKeys.length; i++){
+          for (var a=0; a<queryKeys.length; a++){
+
+          for (var i=0; i<queryValues.length; i++){
 
             var newQuery={}
-            newQuery[queryKeys[i]]=menu.allQueryParams.allLangs[j][queryKeys[i]]
+            newQuery[queryKeys[a]]=menu.allQueryParams.allLangs[j][queryValues[i]]
           }
+        }
         }
       }
       myQuerys[allLocales[k]]=newQuery;
