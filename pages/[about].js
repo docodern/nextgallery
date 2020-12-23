@@ -10,6 +10,35 @@ import { getQueryParams } from '../lib/paths'
 
 
 
+export async function getStaticProps({locale}) {
+  const langDir = path.join(process.cwd(), 'languages')
+  const fullPath = path.join(langDir, locale)
+  const lang = await JSON.parse(fs.readFileSync(fullPath + '.json'));
+  const allQueryParams = getQueryParams()
+  return {
+    props: {
+      lang,
+      menu: {
+        lang,
+        allQueryParams
+      }
+    }
+  }
+}
+
+export const getStaticPaths = () => {
+  return {
+    paths: [
+      { params: { about: 'about' }, locale: 'en' },
+      { params: { about: 'parmani' }, locale: 'lv' },
+      { params: { about: 'galleries' }, locale: 'en' },
+      { params: { about: 'galerijas' }, locale: 'lv' },
+    ],
+    fallback: true,
+  }
+}
+
+
 export default function About({lang, menu}) {
   const router = useRouter()
   const query = router.query.about;
@@ -50,32 +79,4 @@ export default function About({lang, menu}) {
         <Footer />
       </>
     )
-  }
-
-  export async function getStaticProps({locale}) {
-    const langDir = path.join(process.cwd(), 'languages')
-    const fullPath = path.join(langDir, locale)
-    const lang = await JSON.parse(fs.readFileSync(fullPath + '.json'));
-    const allQueryParams = getQueryParams()
-    return {
-      props: {
-        lang,
-        menu: {
-          lang,
-          allQueryParams
-        }
-      }
-    }
-  }
-
-  export const getStaticPaths = () => {
-    return {
-      paths: [
-        { params: { about: 'about' }, locale: 'en' },
-        { params: { about: 'parmani' }, locale: 'lv' },
-        { params: { about: 'galleries' }, locale: 'en' },
-        { params: { about: 'galerijas' }, locale: 'lv' },
-      ],
-      fallback: true,
-    }
   }

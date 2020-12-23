@@ -46,6 +46,7 @@ export default function Menu({ ...menu }) {
       var queryValues=Object.values(router.query)
       var queryKeys=Object.keys(router.query)
       var myQuerys={}
+      console.log('all langs: '+JSON.stringify(menu.allQueryParams.allLangs));
       for (var k=0; k<allLocales.length; k++) {
 
         for (var j=0; j<menu.allQueryParams.allLangs.length; j++){
