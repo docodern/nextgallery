@@ -46,26 +46,30 @@ export default function Menu({ ...menu }) {
       var queryValues=Object.values(router.query)
       var queryKeys=Object.keys(router.query)
       var myQuerys={}
-      console.log('all langs: '+JSON.stringify(menu.allQueryParams.allLangs));
       for (var k=0; k<allLocales.length; k++) {
 
         for (var j=0; j<menu.allQueryParams.allLangs.length; j++){
          
         if (allLocales[k]===menu.allQueryParams.allLangs[j].language){
-
+          var newQuery={}
           for (var a=0; a<queryKeys.length; a++){
-
+            
           for (var i=0; i<queryValues.length; i++){
-
-            var newQuery={}
-            newQuery[queryKeys[a]]=menu.allQueryParams.allLangs[j][queryValues[i]]
+            
+            if (a===i) {
+              if (!menu.allQueryParams.allLangs[j][queryKeys[a]]) {
+                  newQuery[queryKeys[a]]=queryValues[i]
+                } else {
+                newQuery[queryKeys[a]]=menu.allQueryParams.allLangs[j][queryValues[i]]
+                }
+            }
           }
         }
         }
       }
       myQuerys[allLocales[k]]=newQuery;
+      
       }
-
 
     return (
         <div ref={node}>

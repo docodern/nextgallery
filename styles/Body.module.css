@@ -70,17 +70,18 @@
   }
   
 .kind {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 .intro {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
   }
 .header {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 900;
 }
 .picText {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 .order {
   position: relative;
@@ -132,13 +133,16 @@
   height: 50%;
   width: 100%;
 }
+.kind {
+  font-size: 1.25rem;
+}
 .intro {
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 .header {
-font-size: 2rem;
+font-size: 1.875rem;
 }
 .picText {
-font-size: 1.375rem;
+font-size: 1.25rem;
 }
 }

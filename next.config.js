@@ -3,4 +3,7 @@ module.exports = {
       locales: ['en', 'lv'],
       defaultLocale: 'en',
     },
+    images: {
+      domains: ['live.staticflickr.com'],
+    }
   }
